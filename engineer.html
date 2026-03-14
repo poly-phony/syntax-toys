@@ -1,16 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Engineer Speak Generator</title>
+<meta charset="UTF-8">
+<title>Engineer Speak Generator | Syntax Toys</title>
+<style>
+body{
+  background:black;
+  color:#00ff66;
+  font-family:monospace;
+  padding:40px;
+}
+textarea{
+  width:400px;
+  height:120px;
+  background:black;
+  color:#00ff66;
+  border:1px solid #00ff66;
+}
+button{
+  margin-top:10px;
+  background:black;
+  color:#00ff66;
+  border:1px solid #00ff66;
+  padding:6px 12px;
+}
+</style>
 </head>
 
 <body>
 
 <h1>Engineer Speak Generator</h1>
 
-<p>Engineer excuses coming soon.</p>
+<p>Write a normal sentence.</p>
 
-<p><a href="index.html">Back to Syntax Toys</a></p>
+<p>Examples:</p>
+<ul>
+  <li>I just wanted to fix one line of code.</li>
+  <li>It worked yesterday. I changed nothing.</li>
+  <li>The meeting could have been an email.</li>
+</ul>
 
+<textarea id="input"></textarea><br>
+<button onclick="convert()">Convert</button>
+
+<p id="output"></p>
+
+<script>
+function convert() {
+  var text = document.getElementById("input").value.trim();
+
+  if (!text) {
+    document.getElementById("output").innerText = "Please enter a sentence.";
+    return;
+  }
+
+  var patterns = [
+    "From a systems perspective, " + text + ", which indicates a potential optimization opportunity.",
+    'At scale, "' + text + '" becomes a non-trivial problem.',
+    "We should probably refactor the process around: " + text,
+    'This may look simple, but "' + text + '" has clear architectural implications.',
+    "Operationally, " + text + " suggests a need for better resource allocation.",
+    "Going forward, we should align the team around this reality: " + text
+  ];
+
+  var randomIndex = Math.floor(Math.random() * patterns.length);
+  var result = patterns[randomIndex];
+
+  document.getElementById("output").innerText = result;
+}
+</script>
+
+<p><a href="index.html">? Back to Syntax Toys</a></p>
 </body>
 </html>
