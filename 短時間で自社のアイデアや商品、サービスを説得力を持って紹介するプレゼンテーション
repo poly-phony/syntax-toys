@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Meeting That Should Have Been an Email Generator | Syntax Toys</title>
+
+<style>
+body{
+  background:black;
+  color:#00ff66;
+  font-family:monospace;
+  padding:40px;
+}
+
+button{
+  margin-top:10px;
+  margin-right:10px;
+  background:black;
+  color:#00ff66;
+  border:1px solid #00ff66;
+  padding:8px 14px;
+  font-family:monospace;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#001a0a;
+}
+
+#output{
+  margin-top:24px;
+  padding:16px;
+  border:1px solid #00ff66;
+  min-height:60px;
+  max-width:720px;
+  white-space:pre-wrap;
+}
+
+a{
+  color:#b366ff;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Meeting That Should Have Been an Email Generator</h1>
+
+<p>Generate the meeting you never needed.</p>
+
+<button onclick="generate()">Generate</button>
+<button onclick="copyText()">Copy</button>
+
+<div id="output">Click generate.</div>
+
+<p><a href="index.html">Back to Syntax Toys</a></p>
+
+<script>
+
+const openings = [
+"Let's schedule a quick sync",
+"I just wanted to jump on a call",
+"Maybe we can align on this",
+"Let's circle back in a meeting",
+"I think it would be helpful to discuss live"
+];
+
+const middles = [
+"to make sure we're all on the same page",
+"to clarify next steps",
+"to get everyone's thoughts",
+"to talk through the current direction",
+"to unpack some of the details"
+];
+
+const endings = [
+"before moving forward.",
+"so we can move ahead with confidence.",
+"and ensure alignment across teams.",
+"before we finalize anything.",
+"just to make sure nothing slips through the cracks."
+];
+
+function pick(arr){
+return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function generate(){
+
+const text =
+pick(openings) + " " +
+pick(middles) + " " +
+pick(endings);
+
+document.getElementById("output").textContent=text;
+
+}
+
+function copyText(){
+
+const text=document.getElementById("output").textContent;
+navigator.clipboard.writeText(text);
+
+}
+
+</script>
+
+</body>
+</html>
