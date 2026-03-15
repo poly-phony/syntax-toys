@@ -1,16 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Tech Excuse Generator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Excuse Generator | Syntax Toys</title>
+  <style>
+    body {
+      background: black;
+      color: #00ff66;
+      font-family: monospace;
+      padding: 40px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    button {
+      margin-top: 10px;
+      background: black;
+      color: #00ff66;
+      border: 1px solid #00ff66;
+      padding: 8px 14px;
+      font-family: monospace;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #001a0a;
+    }
+
+    #output {
+      margin-top: 24px;
+      padding: 16px;
+      border: 1px solid #00ff66;
+      min-height: 60px;
+      max-width: 720px;
+      white-space: pre-wrap;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: #b366ff;
+    }
+  </style>
 </head>
-
 <body>
+  <h1>Tech Excuse Generator</h1>
 
-<h1>Tech Excuse Generator</h1>
+  <p>Click to generate a polished technical excuse.</p>
 
-<p>Tech excuses coming soon.</p>
+  <button onclick="generateExcuse()">Generate</button>
 
-<p><a href="index.html">Back to Syntax Toys</a></p>
+  <div id="output">Your excuse will appear here.</div>
 
+  <p><a class="back-link" href="index.html">Back to Syntax Toys</a></p>
+
+  <script>
+    const openings = [
+      "We're currently seeing",
+      "The issue appears to be related to",
+      "At the moment we're investigating",
+      "This seems to come from",
+      "What we're seeing right now is"
+    ];
+
+    const causes = [
+      "an unexpected edge case in the deployment pipeline",
+      "a temporary mismatch between environments",
+      "a caching inconsistency",
+      "a dependency conflict introduced upstream",
+      "an intermittent API response issue",
+      "a synchronization problem between services",
+      "a stale configuration being picked up in production",
+      "a browser-specific rendering quirk"
+    ];
+
+    const impacts = [
+      "which is affecting normal behavior",
+      "which is causing unstable results",
+      "which is why the output looks inconsistent",
+      "which is preventing the expected response",
+      "which explains the current disruption",
+      "which is making the system behave unpredictably"
+    ];
+
+    const endings = [
+      "We're working on a fix now.",
+      "A mitigation is already in progress.",
+      "We're narrowing it down and should have more clarity soon.",
+      "Thanks for your patience while we sort it out.",
+      "We're treating this as a priority.",
+      "A proper fix should follow once validation is complete."
+    ];
+
+    function pick(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateExcuse() {
+      const sentence =
+        pick(openings) + " " +
+        pick(causes) + ", " +
+        pick(impacts) + ". " +
+        pick(endings);
+
+      document.getElementById("output").textContent = sentence;
+    }
+  </script>
 </body>
 </html>
