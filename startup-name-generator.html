@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Startup Name Generator | Syntax Toys</title>
+
+<style>
+body{
+  background:black;
+  color:#00ff66;
+  font-family:monospace;
+  padding:40px;
+}
+
+button{
+  margin-top:10px;
+  margin-right:10px;
+  background:black;
+  color:#00ff66;
+  border:1px solid #00ff66;
+  padding:8px 14px;
+  font-family:monospace;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#001a0a;
+}
+
+#output{
+  margin-top:24px;
+  padding:16px;
+  border:1px solid #00ff66;
+  min-height:60px;
+  max-width:720px;
+}
+
+a{
+  color:#b366ff;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Startup Name Generator</h1>
+
+<p>Generate the next billion-dollar startup.</p>
+
+<button onclick="generate()">Generate</button>
+<button onclick="copyName()">Copy</button>
+
+<div id="output">Click generate.</div>
+
+<p><a href="index.html">Back to Syntax Toys</a></p>
+
+<script>
+
+const prefixes = [
+"Quantum",
+"Hyper",
+"Cloud",
+"Data",
+"Neo",
+"Meta",
+"Crypto",
+"Nano",
+"Bright",
+"Deep"
+];
+
+const suffixes = [
+"Forge",
+"Nest",
+"Flow",
+"Works",
+"Lab",
+"Stack",
+"Hive",
+"Pulse",
+"Loop",
+"Bridge"
+];
+
+function pick(arr){
+return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function generate(){
+const name = pick(prefixes)+pick(suffixes);
+document.getElementById("output").textContent=name;
+}
+
+function copyName(){
+const text=document.getElementById("output").textContent;
+navigator.clipboard.writeText(text);
+}
+
+</script>
+
+</body>
+</html>
