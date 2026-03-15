@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Corporate Apology Generator | Syntax Toys</title>
+
+<style>
+body{
+  background:black;
+  color:#00ff66;
+  font-family:monospace;
+  padding:40px;
+}
+
+button{
+  margin-top:10px;
+  margin-right:10px;
+  background:black;
+  color:#00ff66;
+  border:1px solid #00ff66;
+  padding:8px 14px;
+  font-family:monospace;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#001a0a;
+}
+
+#output{
+  margin-top:24px;
+  padding:16px;
+  border:1px solid #00ff66;
+  min-height:60px;
+  max-width:720px;
+  white-space:pre-wrap;
+}
+
+a{
+  color:#b366ff;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Corporate Apology Generator</h1>
+
+<p>Generate a perfectly polished corporate apology.</p>
+
+<button onclick="generate()">Generate</button>
+<button onclick="copyText()">Copy</button>
+
+<div id="output">Click generate.</div>
+
+<p><a href="index.html">Back to Syntax Toys</a></p>
+
+<script>
+
+const openings = [
+"We sincerely apologize for the inconvenience caused by",
+"We regret to inform you about",
+"We would like to address",
+"We acknowledge the issue regarding",
+"We apologize for"
+];
+
+const incidents = [
+"an unexpected service disruption",
+"a temporary system malfunction",
+"recent irregular behavior in our platform",
+"an internal configuration issue",
+"an unforeseen operational problem"
+];
+
+const reassurances = [
+"Our team is actively investigating the matter.",
+"We are working diligently to resolve the issue.",
+"Our engineers are currently addressing the problem.",
+"We are taking immediate steps to restore normal operation.",
+"We are committed to resolving this situation promptly."
+];
+
+const closings = [
+"Thank you for your patience.",
+"We appreciate your understanding.",
+"We value your continued support.",
+"We sincerely thank you for your cooperation.",
+"We will share further updates as they become available."
+];
+
+function pick(arr){
+return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function generate(){
+
+const text =
+pick(openings) + " " +
+pick(incidents) + ". " +
+pick(reassurances) + " " +
+pick(closings);
+
+document.getElementById("output").textContent=text;
+
+}
+
+function copyText(){
+
+const text=document.getElementById("output").textContent;
+navigator.clipboard.writeText(text);
+
+}
+
+</script>
+
+</body>
+</html>
