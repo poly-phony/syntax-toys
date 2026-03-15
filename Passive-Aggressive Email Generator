@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Passive-Aggressive Email Generator | Syntax Toys</title>
+
+<style>
+body{
+  background:black;
+  color:#00ff66;
+  font-family:monospace;
+  padding:40px;
+}
+
+button{
+  margin-top:10px;
+  margin-right:10px;
+  background:black;
+  color:#00ff66;
+  border:1px solid #00ff66;
+  padding:8px 14px;
+  font-family:monospace;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#001a0a;
+}
+
+#output{
+  margin-top:24px;
+  padding:16px;
+  border:1px solid #00ff66;
+  min-height:60px;
+  max-width:720px;
+  white-space:pre-wrap;
+}
+
+a{
+  color:#b366ff;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Passive-Aggressive Email Generator</h1>
+
+<p>Generate a perfectly polite message with just enough tension.</p>
+
+<button onclick="generate()">Generate</button>
+<button onclick="copyText()">Copy</button>
+
+<div id="output">Click generate.</div>
+
+<p><a href="index.html">Back to Syntax Toys</a></p>
+
+<script>
+
+const openings = [
+"Just a gentle reminder that",
+"As mentioned previously,",
+"I wanted to briefly follow up on",
+"Friendly reminder regarding",
+"I thought it might be helpful to note that"
+];
+
+const middles = [
+"this was originally due yesterday",
+"we still haven't received the updated file",
+"the requested changes are still pending",
+"the timeline appears to have slipped a bit",
+"there seems to be some ongoing confusion around ownership"
+];
+
+const endings = [
+"Please let me know if there's anything blocking progress.",
+"Happy to help clarify if needed.",
+"Looking forward to getting this closed out soon.",
+"Would appreciate an update when possible.",
+"Thanks in advance for your attention to this."
+];
+
+function pick(arr){
+return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function generate(){
+
+const text =
+pick(openings) + " " +
+pick(middles) + ". " +
+pick(endings);
+
+document.getElementById("output").textContent=text;
+
+}
+
+function copyText(){
+
+const text=document.getElementById("output").textContent;
+navigator.clipboard.writeText(text);
+
+}
+
+</script>
+
+</body>
+</html>
