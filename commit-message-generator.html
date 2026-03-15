@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commit Message Generator | Syntax Toys</title>
+  <style>
+    body {
+      background: black;
+      color: #00ff66;
+      font-family: monospace;
+      padding: 40px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    button {
+      margin-top: 10px;
+      margin-right: 10px;
+      background: black;
+      color: #00ff66;
+      border: 1px solid #00ff66;
+      padding: 8px 14px;
+      font-family: monospace;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #001a0a;
+    }
+
+    #output {
+      margin-top: 24px;
+      padding: 16px;
+      border: 1px solid #00ff66;
+      min-height: 60px;
+      max-width: 720px;
+      white-space: pre-wrap;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: #b366ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Commit Message Generator</h1>
+
+  <p>Generate plausible commit messages for questionable situations.</p>
+
+  <button onclick="generateMessage()">Generate</button>
+  <button onclick="copyMessage()">Copy</button>
+
+  <div id="output">Click the button.</div>
+
+  <p><a class="back-link" href="index.html">Back to Syntax Toys</a></p>
+
+  <script>
+    const verbs = [
+      "fix",
+      "refactor",
+      "adjust",
+      "clean up",
+      "rework",
+      "patch",
+      "update",
+      "improve",
+      "tweak",
+      "stabilize"
+    ];
+
+    const targets = [
+      "button behavior",
+      "error handling",
+      "layout issue",
+      "mobile spacing",
+      "API fallback",
+      "build script",
+      "naming inconsistency",
+      "state management",
+      "loading logic",
+      "UI alignment"
+    ];
+
+    const reasons = [
+      "for production",
+      "after deploy issue",
+      "for edge cases",
+      "to reduce confusion",
+      "for better readability",
+      "after weird bug",
+      "for browser compatibility",
+      "to stop breaking things",
+      "before demo",
+      "for now"
+    ];
+
+    function pick(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateMessage() {
+      const text = pick(verbs) + " " + pick(targets) + " " + pick(reasons);
+      document.getElementById("output").textContent = text;
+    }
+
+    function copyMessage() {
+      const text = document.getElementById("output").textContent;
+      navigator.clipboard.writeText(text);
+    }
+  </script>
+</body>
+</html>
